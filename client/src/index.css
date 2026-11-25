@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 100% -10%, rgba(155, 178, 201, 0.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(52, 75, 100, 0.06), transparent 55%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-deep;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: rgba(155, 178, 201, 0.35);
+  }
+
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(155, 178, 201, 0.7);
+    border-radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl border border-black/[0.06] shadow-card p-5;
+  }
+
+  .card-flat {
+    @apply bg-white rounded-2xl border border-black/[0.06] p-5;
+  }
+
+  .label {
+    @apply block text-[11px] font-semibold uppercase tracking-[0.08em] text-charcoal/55 mb-1.5;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-charcoal/15 bg-white px-3.5 py-2.5 text-sm text-charcoal
+      placeholder:text-charcoal/35 outline-none transition
+      focus:border-dusty focus:ring-2 focus:ring-dusty/30;
+  }
+
+  .select {
+    @apply w-full rounded-xl border border-charcoal/15 bg-white px-3.5 py-2.5 pr-9 text-sm text-charcoal
+      outline-none transition appearance-none bg-[length:16px] bg-[right_0.75rem_center] bg-no-repeat
+      focus:border-dusty focus:ring-2 focus:ring-dusty/30;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23454B52' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  }
+
+  .textarea {
+    @apply w-full rounded-xl border border-charcoal/15 bg-white px-3.5 py-2.5 text-sm text-charcoal
+      placeholder:text-charcoal/35 outline-none transition min-h-[92px] resize-y
+      focus:border-dusty focus:ring-2 focus:ring-dusty/30;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
+      transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
+      transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap
+      bg-deep text-white shadow-soft hover:bg-[#2b3f57];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
+      transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap
+      border border-charcoal/15 bg-white text-charcoal hover:bg-pale/50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold
+      transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap
+      text-charcoal/70 hover:bg-pale/60 hover:text-deep;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
+      transition active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap
+      bg-[#b0655f] text-white hover:bg-[#9d5650];
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs rounded-lg;
+  }
+
+  .icon-btn {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-lg text-charcoal/55
+      transition hover:bg-pale/70 hover:text-deep;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-charcoal/10;
+  }
+
+  .divide-soft > * + * {
+    @apply border-t border-charcoal/[0.07];
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .animate-delay-1 { animation-delay: 0.05s; }
+  .animate-delay-2 { animation-delay: 0.1s; }
+  .animate-delay-3 { animation-delay: 0.15s; }
+  .animate-delay-4 { animation-delay: 0.2s; }
+}
